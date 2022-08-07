@@ -34,7 +34,8 @@ public class CursomcApplication implements CommandLineRunner {
 	private CidadeRepository cidadeRepository;
 	@Autowired
 	private ClienteRepository clienteRepository;
-	@Autowired EnderecoRepository enderecoRepository;
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -77,10 +78,10 @@ public class CursomcApplication implements CommandLineRunner {
 				TipoCliente.PESSOAFISICA);
 
 		cli1.getTelefones().addAll(Arrays.asList("911548133"));
-		Endereco e1 = new Endereco(null, "Rua Paulo VI", "6", "Lordelo", c1, "4815-204", cli1);
+		Endereco e1 = new Endereco(null, "Rua Paulo VI", "6", "Lordelo", c1, " 4815-204", cli1);
 		Endereco e2 = new Endereco(null, "Rua de martim", "9", "Nespereira", c1, "4835-514", cli1);
 		cli1.getEndereco().addAll(Arrays.asList(e1, e2));
-		
+
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 
